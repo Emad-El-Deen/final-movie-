@@ -1,0 +1,21 @@
+/* Add this in your CSS file */
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+
+.image{
+    width: 400px;
+}
+
+ul{
+list-style-type: none;
+}
+
+span{
+    color: red;
+    font-weight: bold;
+}
+
+.related-tv{
+    margin-top: 90px;
+}

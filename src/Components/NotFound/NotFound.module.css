@@ -1,0 +1,17 @@
+.notFound::after {
+  content: "";
+  background-image: url(../../../public/img/MainNotFound.png);
+  background-position: 100% 100%;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  opacity: 0.5;
+}
+
+.layer {
+  position: absolute;
+  color: white;
+  z-index: 1000;
+}

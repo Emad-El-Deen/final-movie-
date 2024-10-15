@@ -1,0 +1,50 @@
+.home {
+  position: relative;
+  padding: 20px;
+}
+
+
+
+
+
+/* Search results container as a grid */
+.search-results-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Each search result card */
+.search-result-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 10px;
+  flex-basis: 23%; /* Controls the width of each card (adjust to fit the design) */
+  max-width: 23%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.search-result-card img {
+  border-radius: 8px;
+  max-width: 100%; /* Make image responsive */
+  height: auto;
+}
+
+.search-result-card h3 {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.no-results {
+  text-align: center;
+  color: #888;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}

@@ -1,0 +1,28 @@
+
+.people-image {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .people-card:hover .people-image {
+    transform: scale(1.05);
+  }
+  
+
+  
+  .people-title {
+    color: white;
+    
+   
+    padding: 10px;
+  }
+
+  a {
+    text-decoration: none; 
+  }
+  
+  a:hover {
+    text-decoration: none; 
+  }
+  span{
+    color: red;
+  }

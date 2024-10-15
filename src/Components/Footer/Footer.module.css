@@ -1,0 +1,62 @@
+.footer {
+  background: linear-gradient(135deg, #1b1b1b, #333); /* Dark gradient background */
+  color: #fff; /* White text for contrast */
+  padding: 40px 20px; /* Add padding to the top and bottom */
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer h4 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #ff3333; /* Red color for headings */
+}
+
+.footer p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #b3b3b3;
+  line-height: 1.5; /* Improve readability */
+}
+
+.footer .row {
+  display: flex;
+  justify-content: space-around; /* Even spacing */
+  margin-bottom: 20px;
+}
+
+.footer .col {
+  flex: 1; /* Equal space for columns */
+  margin: 0 10px; /* Margin between columns */
+}
+
+.footer a {
+  color: #ff3333; /* Red color for links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #fff; 
+}
+
+.socialIcons {
+  margin: 20px 0; 
+}
+
+.socialIcons a {
+  font-size: 24px;
+  margin: 0 15px; 
+  color: white; 
+  transition: color 0.3s ease;
+}
+
+.socialIcons a:hover {
+  color: #ff3333; 
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #b3b3b3;
+}

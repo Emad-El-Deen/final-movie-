@@ -1,0 +1,106 @@
+/* Wrapper to position background and overlay */
+.wrapper {
+    position: relative;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Background image */
+  .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/background.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    z-index: 1; 
+  }
+  
+  /* Dark overlay */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 2; 
+  }
+  
+  /* Login form container */
+  .container {
+    position: relative;
+    z-index: 3; 
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.85); 
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #fff;
+  }
+  
+  .inputGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .inputGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  
+  .inputGroup input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .inputGroup input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #f40612; 
+  }
+  
+  .footerText {
+    text-align: center;
+    margin-top: 15px;
+    color: #ccc;
+  }
+  
+  .footerText a {
+    color: #e50914;
+    text-decoration: none;
+  }
+  
+  .footerText a:hover {
+    text-decoration: underline;
+  }
+  

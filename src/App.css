@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+:root {
+    --mainColor: black !important;
+    --secColor: red !important;
+}
+
+body {
+    background-color: var(--mainColor) !important;
+    font-family: "Anton", sans-serif !important;
+}
+
+.navbar .nav-link {
+    color: white !important; /* Links are white */
+    text-decoration: none; /* No underline */
+}
+
+.navbar .nav-link:hover {
+    color: var(--secColor) !important; /* Change to secondary color (red) on hover */
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    background-color: black !important; /* Set dropdown background to black */
+    border: none; /* Optional: remove border */
+    display: none; /* Hide dropdown by default */
+}
+
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown menu on hover */
+}
+
+/* Hide dropdown arrow */
+.dropdown-toggle::after {
+    display: none !important; /* Ensure the arrow icon is hidden */
+}
+
+/* Custom styles for dropdown links */
+.dropdown-item {
+    color: var(--secColor) !important; /* Set dropdown item color to secondary color (red) */
+}
+
+.dropdown-item:hover {
+    background-color: var(--secColor) !important; /* Change background color of dropdown item on hover */
+    color: black !important; /* Change text color to black on hover */
+}
+
+/* Selected Item Style */
+.dropdown-item:focus,
+.dropdown-item.active {
+    background-color: white !important; /* Set background to white */
+    color: var(--secColor) !important; /* Set text color to secondary color (red) */
+}
+
+/* Remove Bootstrap's default arrow on dropdowns */
+.dropdown-toggle {
+    border: none; /* Remove border */
+    box-shadow: none; /* Remove shadow */
+    background: transparent; /* Make background transparent */
+}
+
+/* Ensure dropdown items are properly aligned */
+.dropdown-item {
+    padding: 10px 20px; /* Adjust padding if needed */
+}
+
+/* Additional styles to ensure no default Bootstrap styling remains */
+.nav-item.dropdown .nav-link {
+    padding-right: 0; /* Reset padding to avoid default styles */
+}
