@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"; 
 import axios from 'axios';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom'; // Ensure this is imported
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './Home.module.css'; 
@@ -96,6 +97,7 @@ export default function Home() {
     getTvShowGenres();
   }, []);
 
+  // Slider settings and rendering remain unchanged
   const baseUrl = 'https://image.tmdb.org/t/p/w500';
   const sliderSettings = {
     dots: true,
@@ -135,10 +137,8 @@ export default function Home() {
         <h5 className={styles.readyText}>Ready to watch?</h5>
       </div>
 
-
-
       {/* Movies Slider */}
-      <div className={styles.sliderContainer} > 
+      <div className={styles.sliderContainer}> 
         <div className={styles.trendTitle}>
            <h2>Top Rated Movies</h2>
         </div>
@@ -146,31 +146,37 @@ export default function Home() {
         {error && <p className="error-message">{error}</p>}
         <Slider {...sliderSettings}>
           {movies.map((movie, index) => (
-            <div key={movie.id} className={styles.card}>
-              <div className={styles.rankNumber}>{index + 1}</div>
-              <img
-                src={baseUrl + movie.poster_path}
-                alt={movie.title || movie.name}
-                className={styles.cardImage}
-              />
-              <div className={styles.genres}>
-                {movie.genre_ids.slice(0, 3).map((genreId) => {
-                  const genre = movieGenres.find(g => g.id === genreId);
-                  return genre ? (
-                    <p key={genreId} className={styles.genreText}>
-                      {genre.name}
-                    </p>
-                  ) : null;
-                })}
+            <Link 
+              key={movie.id} 
+              to={`/moviesdetails/${movie.id}`} // Update Link to match the MoviesDetails route
+              className={styles.cardLink}
+            >
+              <div className={styles.card}>
+                <div className={styles.rankNumber}>{index + 1}</div>
+                <img
+                  src={baseUrl + movie.poster_path}
+                  alt={movie.title || movie.name}
+                  className={styles.cardImage}
+                />
+                <div className={styles.genres}>
+                  {movie.genre_ids.slice(0, 3).map((genreId) => {
+                    const genre = movieGenres.find(g => g.id === genreId);
+                    return genre ? (
+                      <p key={genreId} className={styles.genreText}>
+                        {genre.name}
+                      </p>
+                    ) : null;
+                  })}
+                </div>
+                <div className={styles.movieTitle}>{movie.title || movie.name}</div>
               </div>
-              <div className={styles.movieTitle}>{movie.title || movie.name}</div>
-            </div>
+            </Link>
           ))}
         </Slider>
       </div>
 
       {/* TV Shows Slider */}
-      <div className={styles.sliderContainer} > 
+      <div className={styles.sliderContainer}> 
         <div className={styles.trendTitle}>
            <h2>Top Rated TV Shows</h2>
         </div>
@@ -178,25 +184,31 @@ export default function Home() {
         {error && <p className="error-message">{error}</p>}
         <Slider {...sliderSettings}>
           {tvShows.map((tvShow, index) => ( 
-            <div key={tvShow.id} className={styles.card}>
-              <div className={styles.rankNumber}>{index + 1}</div>
-              <img
-                src={baseUrl + tvShow.poster_path}
-                alt={tvShow.title || tvShow.name}
-                className={styles.cardImage}
-              />
-              <div className={styles.genres}>
-                {tvShow.genre_ids.slice(0, 3).map((genreId) => {
-                  const genre = tvShowGenres.find(g => g.id === genreId);
-                  return genre ? (
-                    <p key={genreId} className={styles.genreText}>
-                      {genre.name}
-                    </p>
-                  ) : null;
-                })}
+            <Link 
+              key={tvShow.id} 
+              to={`/tvshowsdetails/${tvShow.id}`} // Update Link to match the TvShowsDetails route
+              className={styles.cardLink}
+            >
+              <div className={styles.card}>
+                <div className={styles.rankNumber}>{index + 1}</div>
+                <img
+                  src={baseUrl + tvShow.poster_path}
+                  alt={tvShow.title || tvShow.name}
+                  className={styles.cardImage}
+                />
+                <div className={styles.genres}>
+                  {tvShow.genre_ids.slice(0, 3).map((genreId) => {
+                    const genre = tvShowGenres.find(g => g.id === genreId);
+                    return genre ? (
+                      <p key={genreId} className={styles.genreText}>
+                        {genre.name}
+                      </p>
+                    ) : null;
+                  })}
+                </div>
+                <div className={styles.tvshowTitle}>{tvShow.title || tvShow.name}</div>
               </div>
-              <div className={styles.tvshowTitle}>{tvShow.title || tvShow.name}</div>
-            </div>
+            </Link>
           ))}
         </Slider>
       </div>
@@ -210,15 +222,21 @@ export default function Home() {
         {error && <p className="error-message">{error}</p>}
         <Slider {...sliderSettings}>
           {people.map((person, index) => (
-            <div key={person.id} className={styles.card}>
-              <div className={styles.rankNumber}>{index + 1}</div>
-              <img
-                src={baseUrl + person.profile_path}
-                alt={person.name}
-                className={styles.cardImage}
-              />
-              <div className={styles.movieTitle}>{person.name}</div>
-            </div>
+            <Link 
+              key={person.id} 
+              to={`/peopledetails/${person.id}`} // Update Link to match the PeopleDetails route
+              className={styles.cardLink}
+            >
+              <div className={styles.card}>
+                <div className={styles.rankNumber}>{index + 1}</div>
+                <img
+                  src={baseUrl + person.profile_path}
+                  alt={person.name}
+                  className={styles.cardImage}
+                />
+                <div className={styles.personName}>{person.name}</div>
+              </div>
+            </Link>
           ))}
         </Slider>
       </div>

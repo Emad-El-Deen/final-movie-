@@ -13,11 +13,15 @@ export default function Search() {
     const fetchAllData = async () => {
       try {
         const responses = await Promise.all([
+          fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=c9fac173689f5f01ba1b0420f66d7093`),
+          fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=c9fac173689f5f01ba1b0420f66d7093`),
+          fetch(`https://api.themoviedb.org/3/trending/person/day?api_key=c9fac173689f5f01ba1b0420f66d7093`),
+          fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=c9fac173689f5f01ba1b0420f66d7093`),
+          fetch(`https://api.themoviedb.org/3/genre/tv/list?api_key=c9fac173689f5f01ba1b0420f66d7093`),
           fetch("https://api.themoviedb.org/3/trending/all/day?api_key=c9fac173689f5f01ba1b0420f66d7093"),
           fetch("https://api.themoviedb.org/3/discover/movie?api_key=c9fac173689f5f01ba1b0420f66d7093"),
           fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=c9fac173689f5f01ba1b0420f66d7093"),
           fetch("https://api.themoviedb.org/3/trending/tv/day?api_key=c9fac173689f5f01ba1b0420f66d7093"),
-          fetch("https://api.themoviedb.org/3/trending/person/day?api_key=c9fac173689f5f01ba1b0420f66d7093"),
         ]);
 
         // Check if the responses are okay
