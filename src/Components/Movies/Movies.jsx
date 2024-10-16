@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import MovieCard from './MovieCard';
 import './style.css'
 import axios from 'axios';
+import FilterComponent from './../FilterComponent/FilterComponent';
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
@@ -29,7 +30,7 @@ let num=new Array(10).fill(1).map((num,index)=>index+1)
   }
   return (
     <>
-    
+    <FilterComponent />
         <h1 className="h3 mt-5  fw-bolder"><span>All Movies</span></h1> 
         <div className="row g-4 "> 
           {movies.map((movie) => (

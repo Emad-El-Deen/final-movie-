@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick'; // For the slider
 import './style.css';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome icons
 import ReactStars from 'react-rating-stars-component'; // Import React Rating Stars
 
@@ -47,7 +47,6 @@ export default function MoviesDetails() {
         console.log(err);
       });
   }
-
 
   const ratingConfig = {
     size: 20,
@@ -94,67 +93,60 @@ export default function MoviesDetails() {
     <>
       {/* Movie details */}
       <div className="row mt-5">
-        <div className="col-md-4">
+        <div className="col-md-4 col-sm-12">
           <div className="image">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
-              alt={movieDetails.title}
-              className="w-100"
-            />
+            {movieDetails.poster_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
+                alt=""
+                className="w-100"
+              />
+            ) : (
+              <img
+                src="/img/1.png"
+                alt=""
+                className="w-100"
+              />
+            )}
           </div>
         </div>
-        <div className="col-md-7 offset-1 d-flex align-items-center">
-          <div>
+        <div className="col-md-7 offset-1 d-flex align-items-center ">
+        
+         <div className=''>
             <h2>{movieDetails.title}</h2>
             <h1 className="h6 mt-3">
               {movieDetails.genres
-                ? movieDetails.genres.map((genre) => {
-                    if (genre.name === 'Action') {
-                      return <span key={genre.id} className="badge text-bg-info me-3">{genre.name}</span>;
-                    } else if (genre.name === 'Comedy') {
-                      return <span key={genre.id} className="badge text-bg-warning me-3">{genre.name}</span>;
-                    } else if (genre.name === 'Drama') {
-                      return <span key={genre.id} className="badge text-bg-success me-3">{genre.name}</span>;
-                    } else if (genre.name === 'Horror') {
-                      return <span key={genre.id} className="badge text-bg-danger me-3">{genre.name}</span>;
-                    } else if (genre.name === 'Romance') {
-                      return <span key={genre.id} className="badge text-bg-secondary me-3">{genre.name}</span>;
-                    } else {
-                      return <span key={genre.id} className="badge text-bg-primary me-3">{genre.name}</span>;
-                    }
-                  })
-                : ''}
+                ? movieDetails.genres.map((genre) => (
+                    <span key={genre.id} className="badge me-3 text-bg-primary">
+                      {genre.name}
+                    </span>
+                  ))
+                : ""}
             </h1>
-
             <p className="text-white mt-3">{movieDetails.overview}</p>
-
             <ul className="mt-5 p-0">
-              <div className="d-flex ">
-                <li className="mb-2 col-md-5">
+              <div className="d-flex flex-wrap">
+                <li className="mb-2 col-md-6 col-12">
                   <i className="fas fa-money-bill-wave me-2"></i> {/* Budget Icon */}
                   <span>Budget: </span> {movieDetails.budget}
                 </li>
-                <li className="mb-2 col-md-7">
+                <li className="mb-2 col-md-6 col-12">
                   <i className="fas fa-star me-2"></i> {/* Vote Icon */}
                   <span>Vote : </span>{Math.trunc(movieDetails.vote_average)}
                 </li>
-              </div>
-              <div className="d-flex ">
-                <li className="mb-2 col-md-5">
+                <li className="mb-2 col-md-6 col-12">
                   <i className="fas fa-globe me-2"></i> {/* Country Icon */}
                   <span>Origin Country:</span> {movieDetails.origin_country}
                 </li>
-                <li className="mb-2 col-md-7">
+                <li className="mb-2 col-md-6 col-12">
                   <i className="fas fa-fire me-2"></i> {/* Popularity Icon */}
                   <span>Popularity: </span> {Math.trunc(movieDetails.popularity)}
                 </li>
-              </div>
-              <div className="d-flex ">
-                <li className="mb-2 col-md-5">
+                <li className="mb-2 col-md-6 col-12">
                   <i className="fas fa-calendar-alt me-2"></i> {/* Release Date Icon */}
                   <span>Release date: </span> {movieDetails.release_date}
                 </li>
-                <li className="mb-2 col-md-7">
+                <li className="mb-2 col-md-6 col-12">
                   <i className="fas fa-language me-2"></i> {/* Language Icon */}
                   <span>Language:</span> {movieDetails.original_language}
                 </li>
@@ -164,24 +156,29 @@ export default function MoviesDetails() {
             {/* Rating option */}
             <div className="rating mt-5">
               <h1 className="text-white h5">Rate this movie:</h1>
-              <ReactStars {...ratingConfig} /> {/* Easier star rating system */}
+              <ReactStars {...ratingConfig} />
             </div>
           </div>
+         
         </div>
       </div>
 
       {/* Related movies */}
-      <div className="related-movies">
+      <div className="related-movies mt-5">
         <h3 className="text-white">Related Movies</h3>
         <Slider {...settings}>
           {relatedMovies.map((movie) => (
             <div key={movie.id} className="related-movie-item p-3">
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className="w-100"
-              />
-              <h1 className="text-center h5 mt-2">{movie.title}</h1>
+              <Link className="text-white" to={`/movies/${movie.id}`}>
+                <img
+                  src={movie.poster_path
+                    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                    : "/img/1.png"}
+                  alt={movie.title}
+                  className="w-100"
+                />
+                <h1 className="text-center h5 mt-2">{movie.title}</h1>
+              </Link>
             </div>
           ))}
         </Slider>

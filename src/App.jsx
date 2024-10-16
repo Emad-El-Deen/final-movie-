@@ -25,6 +25,7 @@ import Search from './Components/Search/Search';
 
 
 function App() {
+  
   const [userData, setUserData] = useState(null);
   let navigate = useNavigate;
 
@@ -75,6 +76,10 @@ function App() {
         { path: "tvshowsdetails/:id", element:<ProtectedRoute><TvShowsDetails /></ProtectedRoute>  },
         { path: "peopledetails/:id", element:<ProtectedRoute><PeopleDetails /> </ProtectedRoute> },
         { path: "search", element:<ProtectedRoute><Search /></ProtectedRoute>  },
+        { path: "movies/:id", element:<ProtectedRoute><MoviesDetails /></ProtectedRoute>  },
+        { path: "people/:id", element:<ProtectedRoute><PeopleDetails /></ProtectedRoute>  },
+
+        { path: "tvshows/:id", element:<ProtectedRoute><TvShowsDetails /></ProtectedRoute>  },
         { path: "login", element: <Login saveUserData={saveUserData} /> },
         { path: "register", element: <Register /> },
         { path: "*", element: <NotFound /> },

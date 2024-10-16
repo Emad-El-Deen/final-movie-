@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
 import TvShowsCard from './TvShowsCard';
+import FilterComponent from './../FilterComponent/FilterComponent';
 
 
 export default function TvShows() {
@@ -30,7 +31,8 @@ let num=new Array(10).fill(1).map((num,index)=>index+1)
   }
   return (
     <>
-    
+        <FilterComponent />
+
         <h1 className="h3 mt-5 text-danger fw-bolder"><span>All Tv Shows</span></h1> 
         <div className="row g-4 "> 
           {TvShows.map((show) => (

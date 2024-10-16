@@ -18,7 +18,9 @@
 
   
 }
-
+.personName,.tvshowTitle{
+  color: white;
+}
 .overlay {
   position: absolute;
   top: 0;

@@ -12,7 +12,7 @@ export default function TvShowsCard({ show }) {
      <img
           src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
           alt=''
-          className="w-100 tv-image"
+          className="w-100 tv-image"  
         />
         <div className="layer ">
           <h1 className="tv-title h3">{show.name}</h1>
